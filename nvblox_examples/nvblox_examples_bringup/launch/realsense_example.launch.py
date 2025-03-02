@@ -118,6 +118,7 @@ def generate_launch_description() -> LaunchDescription:
                 'camera': camera_mode,
             },
             # Delay for 1 second to make sure that the static topics from the rosbag are published.
+<<<<<<< Updated upstream
             delay=1.0,
         ))
     # People detection for multi-RS
@@ -131,6 +132,10 @@ def generate_launch_description() -> LaunchDescription:
         input_camera_info_topics.append(f'/{ns}/color/camera_info')
         output_resized_image_topics.append(f'/{ns}/segmentation/image_resized')
         output_resized_camera_info_topics.append(f'/{ns}/segmentation/camera_info_resized')
+=======
+            # delay=1.0,
+            ))
+>>>>>>> Stashed changes
 
     # People segmentation
     actions.append(
@@ -201,6 +206,13 @@ def generate_launch_description() -> LaunchDescription:
                 'camera': camera_mode,
                 'use_foxglove_whitelist': args.use_foxglove_whitelist,
             }))
+    
+    # robot_publisher
+    actions.append(
+        lu.include(
+            'svanm2_description',
+            'launch/display_robot.launch.py',
+            ))
 
     # Container
     # NOTE: By default (attach_to_container:=False) we launch a container which all nodes are

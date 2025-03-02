@@ -61,6 +61,7 @@ def get_splitter_node(camera_name: str) -> ComposableNode:
             'output_qos': 'SENSOR_DATA'
         }],
         remappings=[
+<<<<<<< Updated upstream
             ('input/infra_1', f'/{camera_name}/infra1/image_rect_raw'),
             ('input/infra_1_metadata', f'/{camera_name}/infra1/metadata'),
             ('input/infra_2', f'/{camera_name}/infra2/image_rect_raw'),
@@ -69,6 +70,18 @@ def get_splitter_node(camera_name: str) -> ComposableNode:
             ('input/depth_metadata', f'/{camera_name}/depth/metadata'),
             ('input/pointcloud', f'/{camera_name}/depth/color/points'),
             ('input/pointcloud_metadata', f'/{camera_name}/depth/metadata'),
+=======
+            ('input/infra_1', '/camera/infra1/image_rect_raw'),
+            ('input/infra_1_metadata', '/camera/infra1/metadata'),
+            ('input/infra_2', '/camera/infra2/image_rect_raw'),
+            ('input/infra_2_metadata', '/camera/infra2/metadata'),
+            ('input/depth', '/camera/depth/image_rect_raw'),
+            ('input/depth_metadata', '/camera/depth/metadata'),
+            ('input/pointcloud', '/camera/depth/color/points'),
+            ('input/pointcloud_metadata', '/camera/depth/metadata')
+            # ,
+            # ('input/imu', '/camera/imu')
+>>>>>>> Stashed changes
         ])
     return realsense_splitter_node
 

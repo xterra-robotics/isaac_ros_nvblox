@@ -21,7 +21,7 @@ serial_no: ''
 usb_port_id: ''
 
 rgb_camera:
-  profile: '640x480x15'
+  profile: '640x480x30'
 color_info_qos: "SENSOR_DATA"
 color_qos: "SENSOR_DATA"
 
@@ -40,6 +40,9 @@ enable_depth: true
 enable_gyro: true
 enable_infra1: true
 enable_infra2: true
+gyro_fps: 200
+accel_fps: 200
+unite_imu_method: 2
 
 pointcloud:
   enable: false

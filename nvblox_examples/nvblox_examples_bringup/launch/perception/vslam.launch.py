@@ -32,11 +32,19 @@ def add_vslam(args: lu.ArgumentContainer) -> List[Action]:
     # camera running cuVSLAM, even in the multi-camera case: we run *nvblox* on multiple
     # cameras, but cuVSLAM on camera0 only.
     realsense_remappings = [
+<<<<<<< Updated upstream
         ('visual_slam/camera_info_0', '/camera0/infra1/camera_info'),
         ('visual_slam/camera_info_1', '/camera0/infra2/camera_info'),
         ('visual_slam/image_0', '/camera0/realsense_splitter_node/output/infra_1'),
         ('visual_slam/image_1', '/camera0/realsense_splitter_node/output/infra_2'),
         ('visual_slam/imu', 'camera0/imu'),
+=======
+        ('visual_slam/camera_info_0', '/camera/infra1/camera_info'),
+        ('visual_slam/camera_info_1', '/camera/infra2/camera_info'),
+        ('visual_slam/image_0', '/camera/realsense_splitter_node/output/infra_1'),
+        ('visual_slam/image_1', '/camera/realsense_splitter_node/output/infra_2'),
+        ('visual_slam/imu', 'camera/imu')
+>>>>>>> Stashed changes
     ]
 
     # Base frame: 
@@ -52,14 +60,21 @@ def add_vslam(args: lu.ArgumentContainer) -> List[Action]:
     base_parameters = {
         'num_cameras': 2,
         'min_num_images': 2,
+<<<<<<< Updated upstream
         'enable_localization_n_mapping': False,
+=======
+        'enable_localization_n_mapping': True,
+        'enable_imu_fusion': False,
+>>>>>>> Stashed changes
         'gyro_noise_density': 0.000244,
         'gyro_random_walk': 0.000019393,
         'accel_noise_density': 0.001862,
         'accel_random_walk': 0.003,
         'calibration_frequency': 200.0,
+        # 'image_jitter_threshold_ms': 22.00,
         'rig_frame': 'base_link',
-        'imu_frame': 'front_stereo_camera_imu',
+        'imu_frame': 'camera_gyro_optical_frame',
+        # 'imu_frame': 'front_stereo_camera_imu',
         'enable_slam_visualization': True,
         'enable_landmarks_view': True,
         'enable_observations_view': True,
