@@ -118,7 +118,6 @@ def generate_launch_description() -> LaunchDescription:
                 'camera': camera_mode,
             },
             # Delay for 1 second to make sure that the static topics from the rosbag are published.
-<<<<<<< Updated upstream
             delay=1.0,
         ))
     # People detection for multi-RS
@@ -132,10 +131,6 @@ def generate_launch_description() -> LaunchDescription:
         input_camera_info_topics.append(f'/{ns}/color/camera_info')
         output_resized_image_topics.append(f'/{ns}/segmentation/image_resized')
         output_resized_camera_info_topics.append(f'/{ns}/segmentation/camera_info_resized')
-=======
-            # delay=1.0,
-            ))
->>>>>>> Stashed changes
 
     # People segmentation
     actions.append(
